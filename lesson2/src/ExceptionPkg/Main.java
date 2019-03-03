@@ -18,6 +18,31 @@ public class Main {
             System.out.println("There are incorrect data types in array's elements");
             ex.printStackTrace();
         }
+
+        System.out.println("-------------------");
+
+        try(ResourceClass res = new ResourceClass()){
+            System.out.println("The resource is read");
+        }catch(Exception ex) {
+            System.out.println("Something wrong");
+        }
+
+        System.out.println("-------------------");
+
+        try(ResourceClass res = new ResourceClass()){
+            throw new RuntimeException("Some Error");
+//            System.out.println("The resource is read");
+        }catch(Exception ex) {
+            System.out.println("Something wrong");
+        }
+
+        System.out.println("-------------------");
+
+        try(ResourceClassWithException res = new ResourceClassWithException()){
+            System.out.println("The resource with error is read");
+        }catch(Exception ex) {
+            System.out.println("Something wrong!");
+        }
     }
 
     public static int CalcElementSum(String[][] arrayStrInt) {
