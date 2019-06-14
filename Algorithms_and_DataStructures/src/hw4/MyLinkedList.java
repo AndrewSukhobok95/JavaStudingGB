@@ -39,6 +39,14 @@ public class MyLinkedList<T> {
 
     public boolean isEmpty() { return first==null; }
 
+    public Node getFirst() {
+        return first;
+    }
+
+    public Node getLast() {
+        return last;
+    }
+
     public void insertFirst(T value){
         Node newNode = new Node(value);
         newNode.setNext(first);
@@ -65,11 +73,109 @@ public class MyLinkedList<T> {
         size++;
     }
 
+    public T deleteFirst() {
+        if (isEmpty()) {
+            last = null;
+            return null;
+        }
+        Node oldFirst = first;
+        first = first.getNext();
+        if (isEmpty()) {
+            last = null;
+        }else{
+            first.setPrevious(null);
+        }
+        size--;
+        return (T) oldFirst.getValue();
+    }
+
+    public T deleteLast() {
+        if (isEmpty()) {
+            first = null;
+            return null;
+        }
+        Node oldLast = last;
+        last = last.getPrevious();
+        if (last==null) {
+            first=null;
+        }else{
+            last.setNext(null);
+        }
+        size--;
+        return (T) oldLast.getValue();
+    }
+
+    public int indexOf(T value) {
+        Node currentElement = first;
+        int index = 0;
+        while (currentElement.getValue() != value) {
+            index++;
+            currentElement = currentElement.getNext();
+            if (index==size) {
+                return -1;
+            }
+        }
+        return index;
+    }
+
+    public boolean contains(T value) {
+        return indexOf(value) > -1;
+    }
+
+    public void insert(T value, int index) {
+        Node newNode = new Node(value);
+        Node currentElement = first;
+
+        if (index <= 0) {
+            insertFirst(value);
+            return;
+        }
+        if (index >= size-1) {
+            insertLast(value);
+            return;
+        }
+
+        for (int i=0; i<index; i++) {
+            currentElement = currentElement.getNext();
+        }
+        Node prevElement = currentElement.getPrevious();
+
+        prevElement.setNext(newNode);
+        currentElement.setPrevious(newNode);
+        newNode.setPrevious(prevElement);
+        newNode.setNext(currentElement);
+        size++;
+    }
+
+    public boolean delete(int index) {
+        if (isEmpty()) {
+            return false;
+        }
+        if (index <= 0) {
+            deleteFirst();
+            return true;
+        }
+        if (index >= size-1) {
+            deleteLast();
+            return true;
+        }
+        Node currentElement = first;
+        for (int i=0; i<index; i++) {
+            currentElement = currentElement.getNext();
+        }
+
+        currentElement.getPrevious().setNext(currentElement.getNext());
+        currentElement.getNext().setPrevious(currentElement.getPrevious());
+
+        size--;
+        return true;
+    }
+
     @Override
     public String toString() {
         Node current = first;
         String sep;
-        String s = "";
+        String s = "[";
         while (current != null) {
             if (current.getNext()==null){
                 sep = "";
@@ -79,6 +185,6 @@ public class MyLinkedList<T> {
             s += current.getValue() + sep;
             current = current.getNext();
         }
-        return s;
+        return s + "]";
     }
 }
