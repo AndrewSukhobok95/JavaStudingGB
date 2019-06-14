@@ -37,18 +37,48 @@ public class MyLinkedList<T> {
         last=null;
     }
 
-    public boolean isEmpty() {
-        return first==null;
-    }
+    public boolean isEmpty() { return first==null; }
 
     public void insertFirst(T value){
         Node newNode = new Node(value);
         newNode.setNext(first);
-        if (isEmpty()){
-            first = newNode;
+        newNode.setPrevious(null);
+        if (isEmpty()) {
             last = newNode;
         }else{
-            newNode.setPrevious(first);
+            first.setPrevious(newNode);
         }
+        first = newNode;
+        size++;
+    }
+
+    public void insertLast(T value){
+        Node newNode = new Node(value);
+        newNode.setNext(null);
+        newNode.setPrevious(last);
+        if (isEmpty()) {
+            first = newNode;
+        }else{
+            last.setNext(newNode);
+        }
+        last = newNode;
+        size++;
+    }
+
+    @Override
+    public String toString() {
+        Node current = first;
+        String sep;
+        String s = "";
+        while (current != null) {
+            if (current.getNext()==null){
+                sep = "";
+            }else{
+                sep = ", ";
+            }
+            s += current.getValue() + sep;
+            current = current.getNext();
+        }
+        return s;
     }
 }
