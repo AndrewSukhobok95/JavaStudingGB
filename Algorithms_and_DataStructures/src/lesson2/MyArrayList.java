@@ -40,7 +40,7 @@ public class MyArrayList<Item extends Comparable> {
 
     public boolean delete(Item item) {
         int i = 0;
-//        while ( !list[i].equals(item) && i < size ) {
+//        while ( !list[i].equals(item) && i < getSize ) {
 //            i++;
 //        }
         while (!item.equals(list[i]) && i < size) {
