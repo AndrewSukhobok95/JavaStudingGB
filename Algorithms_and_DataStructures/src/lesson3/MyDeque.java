@@ -45,14 +45,14 @@ public class MyDeque<Item> {
 
     public Item peekRight() {
         if (size <= 0) {
-            throw new StackOverflowError("getSize == 0");
+            throw new StackOverflowError("size == 0");
         }
         return arr[begin];
     }
 
     public Item peekLeft() {
         if (size <= 0) {
-            throw new StackOverflowError("getSize == 0");
+            throw new StackOverflowError("size == 0");
         }
         return arr[lastIndex(end)];
     }
@@ -84,7 +84,7 @@ public class MyDeque<Item> {
 
     public void info() {
         System.out.print(Arrays.toString(arr));
-        System.out.printf("begin: %d end: %d getSize %d \n", begin, end, size);
+        System.out.printf("begin: %d end: %d size %d \n", begin, end, size);
     }
 
     private final void setLoadFactor(double loadFactor) {

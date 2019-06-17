@@ -16,16 +16,35 @@ public class MySortedArrayList<Item extends Comparable> extends MyArrayList<Item
     }
 
     public boolean binaryFind(Item item) {
-        int lo = 0;
-        int hi = size() - 1;
-        while (lo <= hi) {
-            int mid = lo + (hi - lo) / 2; //(hi+lo)/2 ;
-            if (item.compareTo(get(mid)) <0 ){
-                hi = mid - 1;
-            } else if (item.compareTo(get(mid)) >0 ){
-                lo = mid + 1;
-            } else return true;
+        return recBinaryFind(item,0,size()-1);
+//        int lo = 0;
+//        int hi = size() - 1;
+//        while (lo <= hi) {
+//            int mid = lo + (hi - lo) / 2; //(hi+lo)/2 ;
+//            if (item.compareTo(get(mid)) < 0) {
+//                hi = mid - 1;
+//            } else if (item.compareTo(get(mid)) > 0) {
+//                lo = mid + 1;
+//            } else return true;
+//        }
+//        return false;
+    }
+
+    private boolean recBinaryFind(Item item, int lo, int hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (item.compareTo(get(mid)) == 0) {
+            return true;
+        }
+        if(lo == hi){
+            return false;
+        }
+        if (item.compareTo(get(mid)) < 0) {
+            return recBinaryFind(item, lo, mid);
+        }
+        if (item.compareTo(get(mid)) > 0) {
+            return recBinaryFind(item, mid+1 , hi);
         }
         return false;
+
     }
 }

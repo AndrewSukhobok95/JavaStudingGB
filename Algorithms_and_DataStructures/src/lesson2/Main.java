@@ -19,14 +19,14 @@ public class Main {
 //
 //        System.out.println(mal.find(77));
 
-//        MySortedArrayList<Integer> msal = new MySortedArrayList<>();
-//        msal.add(6);
-//        msal.add(2);
-//        msal.add(9);
-//        msal.add(3);
-//        msal.add(4);
-//        System.out.println(msal);
-//        System.out.println(msal.binaryFind(48));
+        MySortedArrayList<Integer> msal = new MySortedArrayList<>();
+        msal.add(6);
+        msal.add(2);
+        msal.add(9);
+        msal.add(3);
+        msal.add(4);
+        System.out.println(msal);
+        System.out.println(msal.binaryFind(9));
 
 
 

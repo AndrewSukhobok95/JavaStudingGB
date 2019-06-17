@@ -2,16 +2,16 @@ package lesson3;
 
 public class Main {
     public static void main(String[] args) {
-        MyStack<Integer> myStack = new MyStack(8);
-        myStack.push(1);
-        myStack.push(2);
-        myStack.push(3);
-        myStack.push(4);
-        myStack.push(5);
-        myStack.push(6);
-        for (int i = 0; i < 6; i++) {
-            System.out.println(myStack.pop());
-        }
+////        MyStack<Integer> myStack = new MyStack(8);
+////        myStack.push(1);
+////        myStack.push(2);
+////        myStack.push(3);
+////        myStack.push(4);
+////        myStack.push(5);
+////        myStack.push(6);
+////        for (int i = 0; i < 6; i++) {
+////            System.out.println(myStack.pop());
+////        }
 //
 ////        Expression e = new Expression("(4-6)+[34+{2*5}]");
 ////        System.out.println(e.checkBracket());

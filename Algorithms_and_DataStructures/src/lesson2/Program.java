@@ -28,13 +28,11 @@ public class Program {
 //            System.out.print(element+" ");
 //        }
 
-        ArrayList<Integer> al = new ArrayList<>();
-        al.add(4);
-        al.add(3);
-        al.add(8);
-        al.add(7, 111);
-        System.out.println(al);
-        al.remove(3);
+//        ArrayList<Integer> al = new ArrayList<>();
+//        al.add(4);
+//        al.add(3);
+//        al.add(8);
+//        System.out.println(al);
 //        al.set(1,44);
 //        System.out.println(al);
 //        al.remove(0);
