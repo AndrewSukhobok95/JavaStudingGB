@@ -41,6 +41,10 @@ public class BST<Key extends Comparable<Key>, Value> {
         return true;
     }
 
+    public boolean isBalanced() {
+        return size(root.left) == size(root.right);
+    }
+
     public boolean contains(Key key) {
         isKeyNotNull(key);
         return get(key) != null;
