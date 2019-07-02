@@ -1,5 +1,9 @@
 /.idea/
 
+/Java_3/.idea/
+/Java_3/out/
+/Java_3/Java_3.iml
+
 /Algorithms_and_DataStructures/.idea/
 /Algorithms_and_DataStructures/out/
 /Algorithms_and_DataStructures/Algorithms_and_DataStructures.iml
